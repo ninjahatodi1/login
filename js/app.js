@@ -52,19 +52,18 @@ const getFromLocalStorage = (key) => {
   return JSON.parse(localStorage.getItem(key));
 };
 
+function showAlert(msg) {
+	if (document.querySelector(".alert")) {
+	} else {
+		const alertDiv = document.createElement("div");
+		alertDiv.classList.add("alert");
+		const textnode = document.createTextNode(`${msg}`);
+		alertDiv.appendChild(textnode);
+		const box = document.querySelector(".box");
+		box.insertBefore(alertDiv, username);
 
-function showAlert(msg)
-{
-  const alertDiv = document.createElement('div');
-  alertDiv.classList.add('alert');
-  const textnode = document.createTextNode(`${msg}`);  
-  alertDiv.appendChild(textnode);  
-  const box = document.querySelector('.box');
-  box.insertBefore(alertDiv,username);
-
-  setTimeout(() => {
-    
-    alertDiv.remove();
-  }, 3000);
-  
+		setTimeout(() => {
+			alertDiv.remove();
+		}, 3000);
+	}
 }
